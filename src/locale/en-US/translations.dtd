@@ -1,1 +1,2 @@
-<!ENTITY runlinktargetfinder "Run Link Target Finder">
+<!ENTITY httpse-ruleset-tests.menu_item "Run HTTPS Everywhere Ruleset Tests">
+<!ENTITY httpse-ruleset-tests.no_httpse "HTTPS Everywhere isn't installed. Go install it and try again.">

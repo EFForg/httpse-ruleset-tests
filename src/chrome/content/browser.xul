@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://linktargetfinder/skin/skin.css" type="text/css"?> 
-<!DOCTYPE linktargetfinder SYSTEM "chrome://linktargetfinder/locale/translations.dtd">
-<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-		<script src="linkTargetFinder.js" />
-		
+<!DOCTYPE httpse-ruleset-tests SYSTEM "chrome://httpse-ruleset-tests/locale/translations.dtd">
+<overlay id="httpse-ruleset-tests-menu" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 		<menupopup id="menu_ToolsPopup"> 
 			<menuitem label="&runlinktargetfinder;" key="link-target-finder-run-key" oncommand="linkTargetFinder.run()"/> 
 		</menupopup>
