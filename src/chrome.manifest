@@ -1,0 +1,8 @@
+content     httpse-ruleset-tests    chrome/content/
+content     httpse-ruleset-tests    chrome/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://httpse-ruleset-tests/content/browser.xul
+
+locale	httpse-ruleset-tests	en-US	locale/en-US/
+
+skin	httpse-ruleset-tests	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://httpse-ruleset-tests/skin/skin.css

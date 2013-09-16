@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+		<em:id>httpse-ruleset-tests@eff.org</em:id>
+		<em:name>HTTPS Everywhere Ruleset Tests</em:name>
+		<em:version>0.1</em:version>
+		<em:type>2</em:type>
+		<em:creator>Micah Lee &amp; Lisa Yao</em:creator>
+		<em:description>Ruleset tests for the HTTPS Everywhere rulesets</em:description>
+		<em:homepageURL>https://www.eff.org/https-everywhere</em:homepageURL>
+		<em:optionsURL>chrome://httpse-ruleset-tests/content/options.xul</em:optionsURL>
+
+		<em:targetApplication>
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>3.5</em:minVersion>
+				<em:maxVersion>99.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	</Description>      
+</RDF>
