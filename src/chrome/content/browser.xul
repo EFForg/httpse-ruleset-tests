@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE httpse-ruleset-tests SYSTEM "chrome://httpse-ruleset-tests/locale/translations.dtd">
 <overlay id="httpse-ruleset-tests-menu" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="strings" src="chrome://httpse-ruleset-tests/locale/translations.properties"/>
+    </stringbundleset>
 
     <script src="httpseRulesetTests.js" />
     
