@@ -1,5 +1,6 @@
 function httpse_ruleset_tests_run() {
 
+    Components.utils.import("resource://gre/modules/PopupNotifications.jsm");
     const numTabs = 5;
     var finished = false;
     var HTTPSEverywhere = null;
@@ -18,7 +19,7 @@ function httpse_ruleset_tests_run() {
     }
 
     for(var target in HTTPSEverywhere.https_rules.targets) {
-        if(!target.contains("*")) {
+        if(!target.contains("*"))  {
             urls.push({ 
                 url: 'https://'+target, 
                 target: target, 
@@ -26,7 +27,6 @@ function httpse_ruleset_tests_run() {
             });
         }
     }
-    console.log(urls);
 
     function test() {
       var i;
@@ -40,16 +40,16 @@ function httpse_ruleset_tests_run() {
         window.focus
         for(i=0; i<numTabs; i++) {
           newTab(num);
-          num += 1;
         }
     }
 
     function newTab(number) {
-      // start a test in this tab
+      num +=1;
+        // start a test in this tab
       if(urls.length) {
         
         // open a new tab
-        var cururl = urls[num].url;
+        var cururl = urls[number].url;
         console.log(cururl);
         var tab = gBrowser.addTab(cururl);
         gBrowser.selectedTab = tab;
@@ -60,11 +60,11 @@ function httpse_ruleset_tests_run() {
           // detect mixed content blocker
           if(PopupNotifications.getNotification("mixed-content-blocked", gBrowser.getBrowserForTab(tab))) {
             ok(false, "URL caused mixed content: "+ cururl);
-
+            popup(cururl);
             writeout(cururl);
             // todo: print this in the live window
           }
-          
+         
           // close this tab, and open another
           closeTab(tab);
 
@@ -76,7 +76,7 @@ function httpse_ruleset_tests_run() {
         if (!finished) { 
           finished = true;
           window.setTimeout(function(){
-            finish();
+            gBrowser.removeCurrentTab();
           }, 10000);
         }
       }
@@ -86,7 +86,7 @@ function httpse_ruleset_tests_run() {
     function closeTab(tab) {
       gBrowser.selectedTab = tab;
       gBrowser.removeCurrentTab();
-      newTab();
+      newTab(num);
     }
 
     //function to create alerts without interrupting test
