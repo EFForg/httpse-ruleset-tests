@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="status.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://httpse-ruleset-tests/locale/translations.dtd">
+<window id="httpse-ruleset-tests-status" 
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    title="&httpse-ruleset-tests.status_title;" 
+    >
+    
+    <script type="application/x-javascript" src="status.js" />
+
+    <commandgroup>
+        <command id="cancel" oncommand="cancel();" />
+    </commandgroup>
+
+    <vbox flex="1">
+        <html:div id="progress-bar-wrapper"> 
+            <label id="progress-bar-label"></label>
+            <progressmeter id="progess-bar" mode="determined" value="0" />
+        </html:div>
+
+        <html:div id="log-wrapper"> 
+            <textbox multiline="true" readonly="true" value="" />
+        </html:div>
+
+        <html:div id="button-wrapper"> 
+            <button 
+                id="cancel-button" 
+                label="&httpse-ruleset-tests.status_cancel_button" 
+                command="cancel" />
+        </html:div>
+    </vbox>
+</window>
+
