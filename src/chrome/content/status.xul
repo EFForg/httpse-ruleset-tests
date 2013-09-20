@@ -12,6 +12,7 @@
 
     <commandgroup>
         <command id="cancel" oncommand="cancel();" />
+        <command id="start" oncommand="start();" />
     </commandgroup>
 
     <html:div id="wrapper"> 
@@ -32,6 +33,11 @@
                 id="cancel-button" 
                 label="&httpse-ruleset-tests.status_cancel_button;" 
                 command="cancel" />
+
+            <button 
+                id="start-button" 
+                label="&httpse-ruleset-tests.status_start_button;" 
+                command="start" />
         </vbox>
     </html:div>
 </window>

@@ -1,3 +1,4 @@
 <!ENTITY httpse-ruleset-tests.menu_item "Run HTTPS Everywhere Ruleset Tests">
 <!ENTITY httpse-ruleset-tests.status_title "HTTPS Everywhere Ruleset Tests">
 <!ENTITY httpse-ruleset-tests.status_cancel_button "Cancel">
+<!ENTITY httpse-ruleset-tests.status_start_button "Start">

@@ -9,7 +9,7 @@
     <script src="httpseRulesetTests.js" />
     
     <menupopup id="menu_ToolsPopup"> 
-        <menuitem label="&httpse-ruleset-tests.menu_item;" key="run-tests-key" oncommand="httpse_ruleset_tests_run()"/> 
+        <menuitem label="&httpse-ruleset-tests.menu_item;" key="run-tests-key" oncommand="openStatus()"/> 
     </menupopup>
     
     <keyset>
