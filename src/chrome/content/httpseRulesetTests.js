@@ -1,4 +1,6 @@
 function httpse_ruleset_tests_run() {
+  var loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"].getService(CI.mozIJSSubScriptLoader);
+  loader.loadSubScript("chrome://httpse-ruleset-tests/content/status.js");
 
   Components.utils.import("resource://gre/modules/PopupNotifications.jsm");
   const numTabs = 5;
@@ -7,6 +9,7 @@ function httpse_ruleset_tests_run() {
   var output = [];
   var urls = [];
   var num = 0;
+  var statusTab = null;
 
   try {
     HTTPSEverywhere = Components.classes["@eff.org/https-everywhere;1"]
@@ -36,6 +39,10 @@ function httpse_ruleset_tests_run() {
     Services.prefs.setBoolPref("security.mixed_content.block_display_content", false);
     Services.prefs.setBoolPref("security.mixed_content.block_active_content", true);
 
+    // open the status tab
+    statusTab = gBrowser.addTab('chrome://httpse-ruleset-tests/content/status.xul');
+    updateStatusBar(num, urls.length);
+
     // start loading all the tabs
     window.focus
     for(i=0; i<numTabs; i++) {
@@ -52,7 +59,8 @@ function httpse_ruleset_tests_run() {
       var cururl = urls[number].url;
       console.log(cururl);
       var tab = gBrowser.addTab(cururl);
-      gBrowser.selectedTab = tab;
+      //gBrowser.selectedTab = tab;
+      gBrowser.selectedTab = statusTab;
 
       // wait for the page to load
       var intervalId = window.setTimeout(function(){
@@ -83,6 +91,8 @@ function httpse_ruleset_tests_run() {
 
   //closes tab
   function closeTab(tab) {
+    updateStatusBar(num, urls.length);
+
     gBrowser.selectedTab = tab;
     gBrowser.removeCurrentTab();
     newTab(num);

@@ -14,22 +14,25 @@
         <command id="cancel" oncommand="cancel();" />
     </commandgroup>
 
-    <vbox flex="1">
-        <html:div id="progress-bar-wrapper"> 
-            <label id="progress-bar-label"></label>
+    <html:div id="wrapper"> 
+        <vbox flex="1">
+            <label id="progress-bar-label" value=""></label>
+            
+            <spacer flex="1"/>
+            
             <progressmeter id="progess-bar" mode="determined" value="0" />
-        </html:div>
+            
+            <spacer flex="1"/>
 
-        <html:div id="log-wrapper"> 
-            <textbox multiline="true" readonly="true" value="" />
-        </html:div>
+            <textbox id="log" multiline="true" readonly="true" value="" />
+            
+            <spacer flex="1"/>
 
-        <html:div id="button-wrapper"> 
             <button 
                 id="cancel-button" 
-                label="&httpse-ruleset-tests.status_cancel_button" 
+                label="&httpse-ruleset-tests.status_cancel_button;" 
                 command="cancel" />
-        </html:div>
-    </vbox>
+        </vbox>
+    </html:div>
 </window>
 
