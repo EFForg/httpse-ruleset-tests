@@ -16,6 +16,7 @@ function httpse_ruleset_tests_run() {
         strbundle = document.getElementById("strings");
         var nofilesfound=strbundle.getString("installAlert");
         alert(nofilesfound);
+        return;
     }
 
     for(var target in HTTPSEverywhere.https_rules.targets) {
@@ -59,7 +60,6 @@ function httpse_ruleset_tests_run() {
 
           // detect mixed content blocker
           if(PopupNotifications.getNotification("mixed-content-blocked", gBrowser.getBrowserForTab(tab))) {
-            ok(false, "URL caused mixed content: "+ cururl);
             popup(cururl);
             writeout(cururl);
             // todo: print this in the live window
