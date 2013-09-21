@@ -21,7 +21,7 @@
             
             <spacer flex="1"/>
             
-            <progressmeter id="progess-bar" mode="determined" value="0" />
+            <progressmeter id="progress-bar" mode="determined" value="0" />
             
             <spacer flex="1"/>
 

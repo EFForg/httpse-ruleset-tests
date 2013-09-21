@@ -33,13 +33,8 @@ function testRunner() {
   // var loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"].getService(Components.interfaces.mozIJSSubScriptLoader);
   // loader.loadSubScript("chrome://httpse-ruleset-tests/content/status.js");
 
-  var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-	                 .getService(Components.interfaces.nsIWindowMediator);
-  var mainWindow = wm.getMostRecentWindow("navigator:browser");
-
   Components.utils.import("resource://gre/modules/PopupNotifications.jsm");
   
-  alert(PopupNotifications);
   const numTabs = 5;
   var finished = false;
   var output = [];
@@ -59,7 +54,7 @@ function testRunner() {
   function test() {
     var i;
  
-    //updateStatusBar(num, urls.length);
+    HTTPSEverywhere.httpseRulesetTests.updateStatusBar(num, urls.length); 
 
     // start loading all the tabs
     window.focus
@@ -76,21 +71,20 @@ function testRunner() {
       // open a new tab
       var cururl = urls[number].url;
       console.log(cururl);
-      var tab = mainWindow.gBrowser.addTab(cururl);
+      var tab = gBrowser.addTab(cururl);
 
 
       // wait for the page to load
       var intervalId = window.setTimeout(function(){
 
         // detect mixed content blocker
-        if(PopupNotifications.getNotification("mixed-content-blocked", mainWindow.gBrowser.getBrowserForTab(tab))) {
+        if(PopupNotifications.getNotification("mixed-content-blocked", gBrowser.getBrowserForTab(tab))) {
           popup(cururl);
           writeout(cururl);
           // todo: print this in the live window
         }
 
         // close this tab, and open another
-        alert("closing tab");
         closeTab(tab);
 
       }, 10000);
@@ -101,7 +95,7 @@ function testRunner() {
       if (!finished) { 
         finished = true;
         window.setTimeout(function(){
-          mainWindow.gBrowser.removeCurrentTab();
+          gBrowser.removeCurrentTab();
         }, 10000);
       }
     }
@@ -109,10 +103,10 @@ function testRunner() {
 
   //closes tab
   function closeTab(tab) {
-    updateStatusBar(num, urls.length);
+    HTTPSEverywhere.httpseRulesetTests.updateStatusBar(num, urls.length); 
 
-    mainWindow.gBrowser.selectedTab = tab;
-    mainWindow.gBrowser.removeCurrentTab();
+    gBrowser.selectedTab = tab;
+    gBrowser.removeCurrentTab();
     newTab(num);
   }
 

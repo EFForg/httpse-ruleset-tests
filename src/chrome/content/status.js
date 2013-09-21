@@ -18,5 +18,10 @@ function start() {
   HTTPSEverywhere = Components.classes["@eff.org/https-everywhere;1"]
     .getService(Components.interfaces.nsISupports)
     .wrappedJSObject;
+
+  HTTPSEverywhere.httpseRulesetTests.updateStatusBar = updateStatusBar;
+  HTTPSEverywhere.httpseRulesetTests.updateLog = updateLog;
+  HTTPSEverywhere.httpseRulesetTests.cancel = cancel;
+
   HTTPSEverywhere.httpseRulesetTests.testRunner();
 }
